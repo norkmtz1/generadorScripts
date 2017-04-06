@@ -6,6 +6,9 @@ public class LineaTO implements Serializable{
 	
 	private static final long serialVersionUID = -787653490621655576L;
 	
+	/**
+	 * Atributo para poner toda la linea leida
+	 */
 	private String lineaCompleta;
 
 	
