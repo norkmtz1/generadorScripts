@@ -47,6 +47,11 @@ public class LeerArchivoUtils {
 
 	} // fin obtenerListaDeArchivos
 	
+	/**
+	 * Metodo para obtener la exrtension de un archivo.
+	 * @param archivo
+	 * @return String con la extension del archivo.
+	 */
 	 public static String getExtensionFile(File archivo) {
          
          if (archivo == null || archivo.isDirectory()){

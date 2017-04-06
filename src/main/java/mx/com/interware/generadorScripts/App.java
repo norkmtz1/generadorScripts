@@ -27,6 +27,10 @@ public class App {
     	appService.generarInsertsRetenciones();
     }
     
+    
+    /**
+     * Renomra archivos pdf y xml
+     */
     public void renombrarPDFs(){
     	
     	AppPdfsService appPdfsService = new AppPdfsService();    	
