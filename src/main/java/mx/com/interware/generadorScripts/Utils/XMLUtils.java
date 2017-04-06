@@ -1,7 +1,12 @@
 package mx.com.interware.generadorScripts.Utils;
 
 public class XMLUtils {
-
+	
+	/**
+	 * Falta por implementar este metodo
+	 * 
+	 * @return
+	 */
 	@Deprecated
 	public String xmlString(){
 		String resValor = null;
