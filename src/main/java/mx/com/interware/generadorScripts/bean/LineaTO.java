@@ -18,12 +18,8 @@ public class LineaTO implements Serializable{
 	public String getLineaCompleta() {
 		return lineaCompleta;
 	}
-<<<<<<< HEAD
-	//cambios en la misma linea
-=======
-
+	// lomismo a cambiar
 	// lo mismo que se camio se modifica
->>>>>>> ramanork
 	public void setLineaCompleta(String lineaCompleta) {
 		this.lineaCompleta = lineaCompleta;
 	}
