@@ -11,7 +11,10 @@ public class LineaTO implements Serializable{
 	 */
 	private String lineaCompleta;
 
-	
+	/** camibio mismo en master y rama
+	 * 
+	 * @return
+	 */
 	public String getLineaCompleta() {
 		return lineaCompleta;
 	}
