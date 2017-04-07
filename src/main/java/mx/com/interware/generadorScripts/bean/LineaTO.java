@@ -18,7 +18,7 @@ public class LineaTO implements Serializable{
 	public String getLineaCompleta() {
 		return lineaCompleta;
 	}
-
+	//cambios en la misma linea
 	public void setLineaCompleta(String lineaCompleta) {
 		this.lineaCompleta = lineaCompleta;
 	}
