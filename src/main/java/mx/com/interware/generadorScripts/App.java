@@ -11,9 +11,10 @@ public class App {
     public static void main( String[] args ){
     	App app = new App();
 //    	app.generarInsertsRetenciones();
-    	app.renombrarPDFs();
+//    	app.renombrarPDFs();
 //    	app.renombrarPdfsXmls();
 //    	app.renombrarLiqFac();
+    	app.renombrarTxt();
     	
     }
     
@@ -45,6 +46,13 @@ public class App {
     public void renombrarLiqFac(){
     	AppArchivosTextoService archTexto = new AppArchivosTextoService();
     	archTexto.renombrarArchBoveda();
+    }
+    
+    
+    public void renombrarTxt(){
+    	
+    	AppPdfsService appPdfsService = new AppPdfsService();    	
+    	appPdfsService.renombrarTxTs();
     }
  
 }

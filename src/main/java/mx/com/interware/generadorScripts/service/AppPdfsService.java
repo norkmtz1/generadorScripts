@@ -22,6 +22,8 @@ public class AppPdfsService {
 	static final String pathSalidaPDFsXmls = "C:\\AXA\\renombradoPDFs\\salidaRenomPdfs\\";
 	static final String pathSalidaXmls = "C:\\AXA\\renombradoPDFs\\salidaRenomXmls\\";
 	
+	static final String pathEntradaNombresNoEncontrados = "C:\\AXA\\conciliacion_2da\\nombresTXT";
+	static final String pathEntradaNoencontrados = "C:\\AXA\\conciliacion_2da\\noEncontrados";
 	
 	public void renombrarPdfs(){
 		
@@ -200,4 +202,54 @@ public class AppPdfsService {
 		}
 		
 	}
+	
+	public void renombrarTxTs(){
+		
+		String pathEntradaNoEncontrados = "C:\\AXA\\conciliacion_2da\\noEncontrados";
+		String pathEntradaRENOMBRADOS = "C:\\AXA\\conciliacion_2da\\RENOMBRADOS";
+		String NOMBRE = "\\noEncontrado_";
+		
+		try{
+		
+			File[] filesPdfs = LeerArchivoUtils.obtenerArchivosDeDirectorio(pathEntradaNoEncontrados);
+			String nuevoNombre = null;
+			
+			int contadorTxt = 1553;
+			int contArchivosValidos =0;
+			 
+			for (int cont=0; cont< filesPdfs.length ; cont++) {
+				
+				File archivoPdf = filesPdfs[cont];
+				
+				String extension = LeerArchivoUtils.getExtensionFile(archivoPdf);
+//				System.out.println("EXTENSION: " + extension);
+				
+				if(!extension.equals("txt")){
+					System.out.println("EL ARCHIVO: " + archivoPdf.getName() + " NO ES UN txt");
+				}else{
+						
+					nuevoNombre =  pathEntradaRENOMBRADOS + NOMBRE + contadorTxt  + ".txt";
+					boolean correcto = archivoPdf.renameTo(new File(nuevoNombre));
+					if(!correcto){
+						System.out.println("FALLO AL RENOMBRAR ARCHIVO: " + archivoPdf.getName());
+						
+					}else{
+						contArchivosValidos++;
+					}
+				}
+				
+				contadorTxt++;
+			} // fin for pdfs
+			
+			System.out.println("TOTAL DE ARCHIVOS A RENOMBRAR:"  + filesPdfs.length);
+			System.out.println("TOTAL DE ARCHIVOS VALIDOS: " + contArchivosValidos);
+			
+		}catch (Exception e) {
+				e.printStackTrace();
+		} finally {
+				
+		}
+	}
+	
+	
 }

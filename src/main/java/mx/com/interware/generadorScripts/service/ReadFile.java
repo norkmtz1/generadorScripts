@@ -251,5 +251,63 @@ public class ReadFile {
 		}
 		return mapArchivosRecibidos;
 	}// fin metodo getFileKeyName
+	
+	public Map<String,String> cargarNombresArchivoTxt(File[] archivosRecibidos){
+		
+		Scanner sc = null;
+	    PrintWriter pw = null;
+	    Map<String,String> mapArchivosRecibidos  = new HashMap<String,String>();
+	    
+	    try {
+	    		
+	    		// Se hace un recorrido sobre los  archivos
+				for (int cont = 0; cont < archivosRecibidos.length; cont++) {
+					
+					System.out.println("ARCHIVO LECTURA: "
+							+ archivosRecibidos[cont].getName());
+					
+					sc = new Scanner(archivosRecibidos[cont]);
+					
+					String lineaProc;
+					long contLineaProc = 0;
+					String datosLineaProc [] = null;
+					
+					String nombreNuevo = null;
+					String folio = null;
+					
+					while (sc.hasNextLine()) {
+						lineaProc = sc.nextLine();
+						
+						if(lineaProc!= null && !lineaProc.isEmpty()){
+//							System.out.println("LINEA PROCESADA A LEER " + (contLineaProc+1) + " : " + lineaProc);
+																									
+							if(!mapArchivosRecibidos.containsKey(lineaProc.trim())){
+								
+								mapArchivosRecibidos.put(lineaProc.trim(), lineaProc.trim());
+							}else{
+								System.out.println("YA EXISTE EN EL HASH");
+							}	
+						}else{
+							System.out.println("LINEA " + (contLineaProc+1) + " INVALIDA VACIA");
+						}
+						contLineaProc++;
+					} // FIN WHILE
+				} // FIN FOR	    	
+		}  catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(sc != null){
+					sc.close();
+				}
+				if(pw != null){
+					pw.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	    return mapArchivosRecibidos;
+	}
 
 }
